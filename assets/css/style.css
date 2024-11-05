@@ -1,0 +1,86 @@
+/* style.css */
+
+/* Global Styles */
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+/* Navbar Style */
+.navbar {
+    background-color: #001f3f; /* Dark navy */
+    padding: 10px 0;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #29fe03 !important; /* Bright green */
+}
+
+/* Form Styles */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header, .btn-primary {
+    background-color: #001f3f;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #29fe03;
+    color: #001f3f;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 0.9em;
+}
+
+/* Table Style */
+.table thead {
+    background-color: #001f3f;
+    color: white;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #29fe03;
+    color: white;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center">
+                    <h3>Selamat Datang, <span id="userName">User</span>!</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="text-primary mb-3">Informasi Akun</h4>
+                    <p class="lead">Berikut adalah informasi lengkap tentang akun Anda:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Nama: </strong><span id="userNameDisplay">User Name</span></li>
+                        <li class="list-group-item"><strong>Email: </strong><span id="userEmail">user@example.com</span></li>
+                        <li class="list-group-item"><strong>Tanggal Registrasi: </strong><span id="userRegDate">01-01-2024</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-5">
+    <p>&copy; 2024 Situs Saya. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Fungsi untuk mengambil data pengguna berdasarkan email
+    function getUserByEmail(email) {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        return users.find(user => user.email === email);
+    }
+    
+    // Fungsi untuk menampilkan data pengguna di dashboard
+    function displayUserData() {
+        // Ambil email pengguna yang login dari localStorage
+        const email = localStorage.getItem("loggedInUser");
+        
+        if (email) {
+            // Ambil data pengguna berdasarkan email
+            const user = getUserByEmail(email);
+            
+            if (user) {
+                // Tampilkan data pengguna di elemen dashboard
+                document.getElementById("userName").textContent = user.name;
+                document.getElementById("userNameDisplay").textContent = user.name;
+                document.getElementById("userEmail").textContent = user.email;
+                document.getElementById("userRegDate").textContent = user.registrationDate;
+            }
+        } else {
+            // Jika tidak ada pengguna yang login, arahkan ke halaman login
+            window.location.href = "login.html";
+        }
+    }
+    
+    // Panggil fungsi untuk menampilkan data pengguna
+    displayUserData();
+    </script>
+    
+    
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
